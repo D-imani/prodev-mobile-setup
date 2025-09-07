@@ -8,7 +8,6 @@ import {
   StyleSheet,
 } from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
-const { height, width } = Dimensions.get("window");
 
 export default function Index() {
   return (
@@ -16,34 +15,40 @@ export default function Index() {
       <SafeAreaView style={{ flex: 1 }}>
         <ImageBackground
           source={require("@/assets/images/background-image.png")}
-          style={{ height, width }}
+          style={styles.background}
           resizeMode="cover"
         >
-          {/* Company Logo */}
-          <View style={styles.background}>
-            <Image source={require("@/assets/images/Logo.png")} />
-          </View>
+          <View style={styles.container}>
+            {/* Company Logo */}
+            <View style={styles.companyLogo}>
+              <Image source={require("@/assets/images/Logo.png")} />
+            </View>
 
-          <View style={styles.textGroup}>
-            <Text style={styles.textLarge}>Find your favorite place here</Text>
-            <Text style={styles.textSmall}>The best prices for over 2 </Text>
-            <Text style={styles.textSmall}>million properties worldwide</Text>
-          </View>
-
-          <View style={styles.buttonGroup}>
-            <TouchableOpacity style={styles.button}>
-              <Text style={{ ...styles.textSmall, color: "black" }}>
-                Join here
+            <View style={styles.textGroup}>
+              <Text style={styles.textLarge}>
+                Find your favorite place here
               </Text>
-            </TouchableOpacity>
+              <Text style={styles.textSmall}>The best prices for over 2 </Text>
+              <Text style={styles.textSmall}>million properties worldwide</Text>
+            </View>
 
-            <TouchableOpacity style={styles.transparentButton}>
-              <Text style={styles.textSmall}>Sign In</Text>
-            </TouchableOpacity>
-          </View>
+            <View style={{ position: "absolute", bottom: 0, width: "100%" }}>
+              <View style={styles.buttonGroup}>
+                <TouchableOpacity style={styles.button}>
+                  <Text style={{ ...styles.textSmall, color: "black" }}>
+                    Join here
+                  </Text>
+                </TouchableOpacity>
 
-          <View style={{ alignItems: "center", paddingVertical: 20 }}>
-            <Text style={{ color: "white" }}>Continue to home</Text>
+                <TouchableOpacity style={styles.transparentButton}>
+                  <Text style={styles.textSmall}>Sign In</Text>
+                </TouchableOpacity>
+              </View>
+
+              <View style={{ alignItems: "center", paddingVertical: 20 }}>
+                <Text style={{ color: "white" }}>Continue to home</Text>
+              </View>
+            </View>
           </View>
           {/* Other components go here */}
         </ImageBackground>
@@ -61,6 +66,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: "100%",
     height: Dimensions.get("window").height,
+  },
+  companyLogo: {
+    width: "100%",
     alignItems: "center",
     padding: 20,
     marginBottom: 50,
