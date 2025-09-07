@@ -20,7 +20,7 @@ export default function Index() {
           resizeMode="cover"
         >
           {/* Company Logo */}
-          <View style={styles.companyLogo}>
+          <View style={styles.background}>
             <Image source={require("@/assets/images/Logo.png")} />
           </View>
 
@@ -61,9 +61,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: "100%",
     height: Dimensions.get("window").height,
-  },
-  companyLogo: {
-    width: "100%",
     alignItems: "center",
     padding: 20,
     marginBottom: 50,
